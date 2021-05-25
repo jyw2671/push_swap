@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 12:48:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 18:07:44 by yjung            ###   ########.fr       */
+/*   Created: 2021/05/25 17:29:49 by yjung             #+#    #+#             */
+/*   Updated: 2021/05/25 17:30:27 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <libft.h>
+void	swap_b(t_stack **a, t_stack **b, t_info *info)
+{
+	int	tmp;
 
-# include "util.h"
-# include "push_swap_type.h"
-# include "operation.h"
-
-#endif
+	(void)a;
+	if (info->cnt_b < 2)
+		return ;
+	tmp = (*b)->value;
+	(*b)->value = (*b)->top->value;
+	(*b)->top->value = tmp;
+}

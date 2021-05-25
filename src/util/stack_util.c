@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:53:28 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 15:52:58 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/25 18:14:47 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,12 @@ t_stack	*stack_last(t_stack *stack)
 {
 	while (stack->bottom)
 		stack = stack->bottom;
+	return (stack);
+}
+
+t_stack	*stack_first(t_stack *stack)
+{
+	while (stack->top)
+		stack = stack->top;
 	return (stack);
 }

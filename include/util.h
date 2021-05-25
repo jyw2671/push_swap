@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:01:20 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 16:20:23 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/25 18:15:23 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ void	exit_free(t_stack **stack);
 // stack_util.c
 t_stack	*stack_new(int num);
 t_stack	*stack_last(t_stack *stack);
+t_stack	*stack_first(t_stack *stack);
+// stack_util2.c
+void	stack_delone(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:56:49 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 16:16:22 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/25 17:16:32 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static int	add_stack(t_stack **stack, int num, t_info *info)
 		if (!tmp)
 			return (stack_free_ret(&tmp, 0));
 		*stack = tmp;
+		info->max = num;
+		info->min = num;
 	}
 	else
 	{
@@ -54,11 +56,11 @@ static int	add_stack(t_stack **stack, int num, t_info *info)
 		if (!tmp)
 			return (stack_free_ret(&tmp, 0));
 		stack_last(*stack)->bottom = tmp;
+		if (num >= info->max)
+			info->max = num;
+		if (num <= info->min)
+			info->min = num;
 	}
-	if (num >= info->max)
-		info->max = num;
-	if (num <= info->min)
-		info->min = num;
 	return (1);
 }
 
@@ -68,7 +70,7 @@ static int	store_stack(t_stack **stack, char *av, t_info *info)
 	long long	num;
 	int			i;
 
-	tmp = ft_split_cnt(av, ' ', &info->len_a);
+	tmp = ft_split(av, ' ');
 	i = -1;
 	while (tmp[++i])
 	{
@@ -77,6 +79,7 @@ static int	store_stack(t_stack **stack, char *av, t_info *info)
 		if (!add_stack(stack, num, info))
 			return (free_split(&tmp));
 		free(tmp[i]);
+		info->cnt_a++;
 	}
 	free(tmp);
 	return (1);

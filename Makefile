@@ -6,7 +6,7 @@
 #    By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/25 12:14:00 by yjung             #+#    #+#              #
-#    Updated: 2021/05/25 16:14:20 by yjung            ###   ########.fr        #
+#    Updated: 2021/05/25 17:19:05 by yjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ RM = rm
 RMFLAGS = -rf
 
 INC_DIR = include
+CFLAGS += -I $(INC_DIR)
 SRC_DIR = src
 OBJ_DIR = obj
 
@@ -60,17 +61,19 @@ all : $(NAME)
 clean :
 	@$(RM) $(RMFLAGS) $(OBJS) $(OBJ_DIR)
 
-fclean : clean
+fclean : clean lib_fclean
 	@$(RM) $(RMFLAGS) $(NAME)
 
 re : fclean all
 
-$(OBJ_DIR)/%.o : %.c
-	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CDEBUG) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+$(OBJ_DIR) :
+	@mkdir $(OBJ_DIR)
 
-$(NAME) : $(HEADERS) $(OBJS)
-	@$(AR) $(ARFLAGS) $@ $(OBJS)
+$(OBJ_DIR)/%.o : %.c $(LIBFT_FILE) | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME) : $(LIBFT_FILE) $(HEADERS) $(OBJS)
+	@$(CC) $(CFLAGS) $(LIBFT_FLAGS) $(OBJS) -o $@
 
 # lib
 lib : libft

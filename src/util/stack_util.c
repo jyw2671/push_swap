@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:53:28 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 18:14:47 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/25 21:27:22 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,15 @@ t_stack	*stack_first(t_stack *stack)
 	while (stack->top)
 		stack = stack->top;
 	return (stack);
+}
+
+void	find_first_stack(t_stack **stack)
+{
+	while (*stack)
+	{
+		if ((*stack)->top)
+			*stack = (*stack)->top;
+		else
+			break ;
+	}
 }

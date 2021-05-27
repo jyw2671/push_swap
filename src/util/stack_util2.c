@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:07:59 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 21:27:27 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/27 14:51:08 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	stack_delone(t_stack **stack)
 		(*stack)->top->bottom = (*stack)->bottom;
 	if ((*stack)->bottom)
 		(*stack)->bottom->top = (*stack)->top;
-	free(stack);
+	free(*stack);
 }
 
 int	stack_add_front(t_stack **stack, int num)

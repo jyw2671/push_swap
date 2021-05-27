@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:54:46 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 21:33:03 by yjung            ###   ########.fr       */
+/*   Updated: 2021/05/27 13:48:31 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ int	push_b(t_stack **a, t_stack **b, t_info *info)
 	find_first_stack(a);
 	if (!(*b))
 	{
-		tmp = stack_new((*a)->value);
-		if (!tmp)
+		*b = stack_new((*a)->value);
+		if (!(*b))
 			return (0);
 	}
 	else if (!stack_add_front(b, (*a)->value))
 		return (0);
+	tmp = (*a)->bottom;
 	stack_delone(a);
+	*a = tmp;
 	info->cnt_a--;
 	info->cnt_b++;
 	return (1);

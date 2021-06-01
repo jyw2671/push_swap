@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:01:20 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/27 12:21:22 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/01 17:18:54 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int		free_split(char ***str);
 void	exit_free(t_stack **stack);
 // stack_util.c
 t_stack	*stack_new(int num);
+t_stack	*stack_cnt(t_stack *stack, int num);
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_first(t_stack *stack);
 void	find_first_stack(t_stack **stack);
-void	find_last_stack(t_stack **stack);
 // stack_util2.c
 void	stack_delone(t_stack **stack);
 int		stack_add_front(t_stack **stack, int num);

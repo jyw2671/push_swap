@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_ab.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate_b.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 21:36:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 16:16:08 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/01 17:19:23 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/01 17:19:52 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_ab(t_stack **a, t_stack **b, t_info *info)
+void	reverse_rotate_b(t_stack **b, t_info *info)
 {
-	rotate_a(a, info);
-	rotate_b(b, info);
+	t_stack	*tmp;
+	t_stack	*last;
+
+	if (info->cnt_b < 2)
+		return ;
+	last = stack_last(*b);
+	tmp = stack_cnt(*b, info->cnt_b - 1);
+	(*b)->top = last;
+	tmp->bottom = NULL;
+	last->top = NULL;
+	last->bottom = (*b);
+	*b = last;
 }

@@ -6,22 +6,11 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 16:20:14 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/01 14:02:16 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	find_first_stack(t_stack **stack)
-{
-	while (*stack)
-	{
-		if ((*stack)->top)
-			*stack = (*stack)->top;
-		else
-			break ;
-	}
-}
 
 static void	stack_free(t_stack **stack)
 {

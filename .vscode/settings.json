@@ -17,6 +17,7 @@
 		"tuple": "c",
 		"type_traits": "c",
 		"vector": "c",
-		"__functional_03": "c"
+		"__functional_03": "c",
+		"stdio.h": "c"
 	}
 }

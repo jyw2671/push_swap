@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:53:28 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 21:27:22 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/01 17:18:15 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ t_stack	*stack_new(int num)
 	stack->bottom = 0;
 	stack->top = 0;
 	stack->value = num;
+	return (stack);
+}
+
+t_stack	*stack_cnt(t_stack *stack, int num)
+{
+	while (--num > 0)
+		stack = stack->bottom;
 	return (stack);
 }
 

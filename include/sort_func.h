@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_func.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 12:48:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/07 17:00:19 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/07 16:56:01 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/07 17:27:46 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SORT_FUNC_H
+# define SORT_FUNC_H
 
-# include <unistd.h>
-# include <libft.h>
-
-# include "util.h"
+# include "push_swap.h"
 # include "push_swap_type.h"
-# include "operation.h"
-# include "sort_func.h"
-
-# define FAIL		0
-# define SUCCESS	1
-# define DONE		2
-
-# define PUSH_A		1
-# define PUSH_B		2
+// check_util.c
+int		check_stack(t_stack *stack, t_info *info);
+void	setting_pivot(t_stack *stack, int *pivot_a, int *pivot_b);
+void	check_pivot(int *pivot_a, int *pivot_b);
+// sort_main.c
+void	sort_main(t_stack **stack, t_info *info);
 
 #endif

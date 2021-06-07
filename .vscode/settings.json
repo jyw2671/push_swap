@@ -18,6 +18,7 @@
 		"type_traits": "c",
 		"vector": "c",
 		"__functional_03": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"push_swap.h": "c"
 	}
 }

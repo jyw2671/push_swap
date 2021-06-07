@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:07:59 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 14:24:09 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/07 16:39:47 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ int	stack_add_back(t_stack **stack, int num)
 	last->bottom = new;
 	new->top = last;
 	return (1);
+}
+
+void	stack_add_stack(t_stack **stack, t_stack **back)
+{
+	t_stack	*last;
+
+	if (!(*back))
+		return ;
+	last = stack_last(*stack);
+	last->bottom = *back;
+	(*back)->top = last;
 }

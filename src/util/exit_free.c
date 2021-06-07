@@ -6,13 +6,13 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 14:02:16 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/07 16:42:05 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	stack_free(t_stack **stack)
+void	stack_free(t_stack **stack)
 {
 	t_stack	*tmp;
 

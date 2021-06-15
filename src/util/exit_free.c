@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 14:02:16 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/15 22:22:52 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int	free_split(char ***str)
 	return (0);
 }
 
-void	exit_free(t_stack **stack)
+void	exit_free(t_stack **stack, int status)
 {
 	ft_putendl_fd("Error", 2);
 	find_first_stack(stack);
 	stack_free(stack);
-	exit(0);
+	if (!status)
+		exit(0);
 }

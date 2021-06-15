@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate_ab.c                                :+:      :+:    :+:   */
+/*   sort_func.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 17:20:15 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 21:02:31 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/15 18:46:56 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/15 21:39:36 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef SORT_FUNC_H
+# define SORT_FUNC_H
 
-void	reverse_rotate_ab(t_stack **a, t_stack **b, t_info *info)
-{
-	reverse_rotate_a(a, info->cnt_a);
-	reverse_rotate_b(b, info->cnt_b);
-}
+# include "push_swap.h"
+
+int	sort_main(t_stack **stack, int cnt);
+int	set_pivot(t_stack *stack, t_info *info);
+
+#endif

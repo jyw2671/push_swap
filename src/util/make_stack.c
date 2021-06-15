@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:56:49 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 17:16:32 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/15 22:23:40 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_stack	*make_stack(char *av[], t_info *info)
 	while (av[++i])
 	{
 		if (!store_stack(&result, av[i], info))
-			exit_free(&result);
+			exit_free(&result, FAIL);
 	}
 	return (result);
 }

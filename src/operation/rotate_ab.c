@@ -6,14 +6,14 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:36:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 16:16:08 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/15 20:59:20 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_ab(t_stack **a, t_stack **b, t_info *info)
+void	rotate_ab(t_stack **a, t_stack **b)
 {
-	rotate_a(a, info);
-	rotate_b(b, info);
+	rotate_a(a);
+	rotate_b(b);
 }

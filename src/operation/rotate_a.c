@@ -6,17 +6,17 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:58:21 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 16:14:40 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/15 22:15:17 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack **a, t_info *info)
+void	rotate_a(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if (info->cnt_a < 2)
+	if (!(*a)->bottom)
 		return ;
 	tmp = *a;
 	*a = (*a)->bottom;

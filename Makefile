@@ -6,7 +6,7 @@
 #    By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/25 12:14:00 by yjung             #+#    #+#              #
-#    Updated: 2021/05/25 17:19:05 by yjung            ###   ########.fr        #
+#    Updated: 2021/06/15 18:51:34 by yjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,18 +41,23 @@ HEADERS = $(wildcard $(INC_DIR)/*.h)
 OPER_SRC_DIR = $(SRC_DIR)/operation
 OPER_SRC = $(wildcard $(OPER_SRC_DIR)/*.c)
 
+SORT_SRC_DIR = $(SRC_DIR)/sort_func
+SORT_SRC = $(wildcard $(SORT_SRC_DIR)/*.c)
+
 UTIL_SRC_DIR = $(SRC_DIR)/util
 UTIL_SRC = $(wildcard $(UTIL_SRC_DIR)/*.c)
 
 SRCS = \
 	$(wildcard $(SRC_DIR)/*.c)	\
-	$(UTIL_SRC)	\
-	$(OPER_SRC)
+	$(OPER_SRC)	\
+	$(SORT_SRC)	\
+	$(UTIL_SRC)
 
 vpath %.c \
 	$(SRC_DIR)	\
-	$(UTIL_SRC_DIR)	\
-	$(OPER_SRC_DIR)
+	$(OPER_SRC_DIR)	\
+	$(SORT_SRC_DIR)	\
+	$(UTIL_SRC_DIR)
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 

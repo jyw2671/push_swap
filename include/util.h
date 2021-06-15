@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:01:20 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 17:18:54 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/15 22:23:22 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 //make_stack.c
 t_stack	*make_stack(char *av[], t_info *info);
 // exit_free.c
+void	stack_free(t_stack **stack);
 int		stack_free_ret(t_stack **stack, int ret);
 int		free_split(char ***str);
-void	exit_free(t_stack **stack);
+void	exit_free(t_stack **stack, int status);
 // stack_util.c
 t_stack	*stack_new(int num);
 t_stack	*stack_cnt(t_stack *stack, int num);
@@ -31,5 +32,8 @@ void	find_first_stack(t_stack **stack);
 void	stack_delone(t_stack **stack);
 int		stack_add_front(t_stack **stack, int num);
 int		stack_add_back(t_stack **stack, int num);
+// print_oper.c
+void	print_oper(t_stack **stack, char *oper, int	num);
+int		print_push(t_stack **a, t_stack **b, char *oper, t_info *info);
 
 #endif

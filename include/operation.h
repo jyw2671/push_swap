@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:51:07 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 21:02:10 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/16 17:06:20 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
 void	swap_ab(t_stack **a, t_stack **b);
+void	push(t_stack **a, t_stack **b);
 int		push_a(t_stack **a, t_stack **b, t_info *info);
 int		push_b(t_stack **b, t_stack **a, t_info *info);
 void	rotate_a(t_stack **a);

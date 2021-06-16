@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:38:30 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 21:39:42 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/16 17:48:14 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	swap_array(int *a, int *b)
 	*b = tmp;
 }
 
-static int	make_array(t_stack *stack, int cnt)
+static int	*make_array(t_stack *stack, int cnt)
 {
 	int	*result;
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:12:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 21:46:57 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/16 17:10:46 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,26 @@ void	print_oper(t_stack **stack, char *oper, int	num)
 	ft_putendl_fd(oper, 1);
 }
 
-int	print_push(t_stack **a, t_stack **b, char *oper, t_info *info)
+void	print_push(t_stack **a, t_stack **b, char *oper, t_info *info)
 {
 	if (!ft_strcmp(oper, "pa"))
 	{
-		push_a(a, b, info);
-		if (!a)
-			return (FAIL);
+		push(a, b);
+		if (info->cnt_a > 0)
+		{
+			info->cnt_a--;
+			info->cnt_b++;
+			ft_putendl_fd(oper, 1);
+		}
 	}
 	if (!ft_strcmp(oper, "pb"))
 	{
-		push_b(b, a, info);
-		if (!b)
-			return (FAIL);
+		push(b, a);
+		if (info->cnt_b > 0)
+		{
+			info->cnt_b--;
+			info->cnt_a++;
+			ft_putendl_fd(oper, 1);
+		}
 	}
-	ft_putendl_fd(oper, 1);
-	return (SUCCESS);
 }

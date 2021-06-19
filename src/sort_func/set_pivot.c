@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:38:30 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/16 17:48:14 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/19 17:23:25 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ static int	*make_array(t_stack *stack, int cnt)
 	i = 0;
 	while (stack)
 	{
-		result[i++] = stack->value;
+		result[i] = stack->value;
 		stack = stack->bottom;
+		++i;
 	}
 	return (result);
 }
@@ -45,11 +46,11 @@ int	set_pivot(t_stack *stack, t_info *info)
 	array = make_array(stack, info->cnt_a);
 	if (!array)
 		return (0);
-	a = info->cnt_a + 1;
-	while (--a > 0)
+	a = -1;
+	while (++a < info->cnt_a - 1)
 	{
 		b = a;
-		while (--b > 0)
+		while (++b > info->cnt_a)
 		{
 			if (array[a] > array[b])
 				swap_array(&array[a], &array[b]);

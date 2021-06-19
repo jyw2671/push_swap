@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 22:22:52 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/19 17:12:37 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	free_split(char ***str)
 
 void	exit_free(t_stack **stack, int status)
 {
-	ft_putendl_fd("Error", 2);
+	if (!status)
+		ft_putendl_fd("Error", 2);
 	find_first_stack(stack);
 	stack_free(stack);
 	if (!status)

@@ -6,11 +6,12 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:46:09 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/16 18:00:43 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/19 17:17:57 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	check_stack(t_stack **stack_a, int cnt)
 {
@@ -22,11 +23,15 @@ void	check_stack(t_stack **stack_a, int cnt)
 	if (tmp->value > tmp->bottom->value)
 		print_oper(&tmp, "sa", 0);
 	if (cnt == 2)
+	{
+		*stack_a = tmp;
 		return ;
+	}
 	if (tmp->bottom->value > stack_last(tmp)->value)
 		print_oper(&tmp, "rra", 3);
 	if (tmp->value > tmp->bottom->value)
 		print_oper(&tmp, "sa", 0);
+	*stack_a = tmp;
 }
 
 void	sort_stack(t_stack **a, t_stack **b, t_info *info, int cnt)
@@ -47,6 +52,7 @@ void	sort_stack(t_stack **a, t_stack **b, t_info *info, int cnt)
 		else
 			print_oper(a, "ra", 0);
 	}
+	*a = tmp;
 }
 
 int	sort_main(t_stack **stack_a, int cnt)

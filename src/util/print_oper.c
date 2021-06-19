@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:12:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/16 17:10:46 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/19 16:36:53 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	print_oper(t_stack **stack, char *oper, int	num)
 	if (!ft_strcmp(oper, "rb"))
 		rotate_b(stack);
 	if (!ft_strcmp(oper, "rra"))
-		reverese_rotate_a(stack, num);
+		reverse_rotate_a(stack, num);
 	if (!ft_strcmp(oper, "rrb"))
-		reverese_rotate_b(stack, num);
+		reverse_rotate_b(stack, num);
 	if (!ft_strcmp(oper, "sa"))
 		swap_a(stack);
 	if (!ft_strcmp(oper, "sb"))

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:01:20 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/16 18:01:18 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 21:24:16 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	stack_delone(t_stack **stack);
 int		stack_add_front(t_stack **stack, int num);
 int		stack_add_back(t_stack **stack, int num);
 // print_oper.c
-void	print_oper(t_stack **stack, char *oper, int	num);
+void	print_oper(t_stack **stack_a, t_stack **stack_b, char *oper, int num);
 void	print_push(t_stack **a, t_stack **b, char *oper, t_info *info);
 
 #endif

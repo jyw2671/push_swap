@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:38:30 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/19 17:23:25 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 20:54:41 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	set_pivot(t_stack *stack, t_info *info)
 	while (++a < info->cnt_a - 1)
 	{
 		b = a;
-		while (++b > info->cnt_a)
+		while (++b < info->cnt_a)
 		{
 			if (array[a] > array[b])
 				swap_array(&array[a], &array[b]);

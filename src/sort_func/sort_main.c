@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:46:09 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/19 17:17:57 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 21:32:17 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,35 @@ void	check_stack(t_stack **stack_a, int cnt)
 		return ;
 	tmp = *stack_a;
 	if (tmp->value > tmp->bottom->value)
-		print_oper(&tmp, "sa", 0);
+		print_oper(&tmp, NULL, "sa", 0);
 	if (cnt == 2)
 	{
 		*stack_a = tmp;
 		return ;
 	}
 	if (tmp->bottom->value > stack_last(tmp)->value)
-		print_oper(&tmp, "rra", 3);
+		print_oper(&tmp, NULL, "rra", 3);
 	if (tmp->value > tmp->bottom->value)
-		print_oper(&tmp, "sa", 0);
+		print_oper(&tmp, NULL, "sa", 0);
 	*stack_a = tmp;
 }
 
 void	sort_stack(t_stack **a, t_stack **b, t_info *info, int cnt)
 {
-	t_stack	*tmp;
-	int		num;
+	int	num;
 
-	tmp = *a;
-	while (--cnt > 0)
+	while (--cnt >= 0)
 	{
-		num = tmp->value;
+		num = (*a)->value;
 		if (num > info->pivot_a)
 		{
-			print_push(&tmp, b, "pb", info);
+			print_push(a, b, "pb", info);
 			if (num > info->pivot_b)
-				print_oper(b, "rb", 0);
+				print_oper(a, b, "rb", 0);
 		}
 		else
-			print_oper(a, "ra", 0);
+			print_oper(a, b, "ra", 0);
 	}
-	*a = tmp;
 }
 
 int	sort_main(t_stack **stack_a, int cnt)
@@ -61,7 +58,7 @@ int	sort_main(t_stack **stack_a, int cnt)
 	t_info		new_info;
 
 	stack_b = 0;
-	ft_memset(&new_info, 0, sizeof(t_stack));
+	ft_memset(&new_info, 0, sizeof(t_info));
 	if (cnt <= 3)
 	{
 		check_stack(stack_a, cnt);
@@ -73,7 +70,7 @@ int	sort_main(t_stack **stack_a, int cnt)
 	sort_stack(stack_a, &stack_b, &new_info, cnt);
 	if (sort_main(stack_a, new_info.cnt_a) == FAIL)
 		return (FAIL);
-	if (sort_main(&stack_b, new_info.cnt_a) == FAIL)
+	if (sort_main(&stack_b, new_info.cnt_b) == FAIL)
 		return (FAIL);
 	if (stack_b)
 	{

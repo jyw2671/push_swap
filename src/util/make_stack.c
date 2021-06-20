@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:56:49 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 22:23:40 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 21:31:21 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,25 @@ static int	is_int(char *str)
 	while (str[++i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (0);
+			return (FAIL);
 	}
-	return (1);
+	return (SUCCESS);
 }
 
-static int	check_num(char *str, long long *num)
+static int	check_num(char *str, long long *num, t_stack *stack)
 {
 	if (!is_int(str))
-		return (0);
+		return (FAIL);
 	*num = ft_atoi(str);
 	if (*num > INT_MAX || *num < INT_MIN)
-		return (0);
-	return (1);
+		return (FAIL);
+	while (stack)
+	{
+		if (stack->value == *num)
+			return (FAIL);
+		stack = stack->bottom;
+	}
+	return (SUCCESS);
 }
 
 static int	add_stack(t_stack **stack, int num, t_info *info)
@@ -45,7 +51,7 @@ static int	add_stack(t_stack **stack, int num, t_info *info)
 	{
 		tmp = stack_new(num);
 		if (!tmp)
-			return (stack_free_ret(&tmp, 0));
+			return (stack_free_ret(&tmp, FAIL));
 		*stack = tmp;
 		info->max = num;
 		info->min = num;
@@ -54,14 +60,14 @@ static int	add_stack(t_stack **stack, int num, t_info *info)
 	{
 		tmp = stack_new(num);
 		if (!tmp)
-			return (stack_free_ret(&tmp, 0));
+			return (stack_free_ret(&tmp, FAIL));
 		stack_last(*stack)->bottom = tmp;
 		if (num >= info->max)
 			info->max = num;
 		if (num <= info->min)
 			info->min = num;
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 static int	store_stack(t_stack **stack, char *av, t_info *info)
@@ -74,7 +80,7 @@ static int	store_stack(t_stack **stack, char *av, t_info *info)
 	i = -1;
 	while (tmp[++i])
 	{
-		if (!check_num(tmp[i], &num))
+		if (!check_num(tmp[i], &num, *stack))
 			return (free_split(&tmp));
 		if (!add_stack(stack, num, info))
 			return (free_split(&tmp));

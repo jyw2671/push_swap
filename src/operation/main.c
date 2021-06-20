@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:48:10 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/19 17:10:08 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 20:55:02 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char *av[])
 
 	if (ac < 2)
 		return (0);
-	ft_memset(&info, 0, sizeof(t_stack));
+	ft_memset(&info, 0, sizeof(t_info));
 	stack_a = make_stack(av, &info);
 	print_stack(stack_a);
 	if (sort_main(&stack_a, info.cnt_a) == FAIL)

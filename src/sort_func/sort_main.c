@@ -6,14 +6,14 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:46:09 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/20 21:32:17 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 22:16:50 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	check_stack(t_stack **stack_a, int cnt)
+void	last_sort(t_stack **stack_a, int cnt)
 {
 	t_stack	*tmp;
 
@@ -52,30 +52,65 @@ void	sort_stack(t_stack **a, t_stack **b, t_info *info, int cnt)
 	}
 }
 
-int	sort_main(t_stack **stack_a, int cnt)
+// 오름차순이든 내림차순이든 잘 정렬되어 있는지 확인
+int	check_stack(t_stack *stack, int cnt)
 {
-	t_stack		*stack_b;
-	t_info		new_info;
+	while (stack && --cnt >= 0)
+	{
+		if (stack->value > stack->bottom->value)
+			return (0);
+		stack = stack->bottom;
+	}
+	return (1);
+}
 
-	stack_b = 0;
+// b에 있는 stack을 cnt만큼 3분위로 sort
+int	sort_b(t_stack **stack_a, t_stack **stack_b, int cnt)
+{
+	int		new_cnt;
+	t_info	new_info;
+
+	ft_memset(&new_info, 0, sizeof(t_info));
+	if (check_stack(*stack_b, cnt) == 1)
+		return (SUCCESS);
+	if (cnt <= 3)
+	{
+		last_sort(stack_b, cnt);
+		return (SUCCESS);
+	}
+	if (set_pivot(*stack_a, &new_info, cnt) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
+}
+
+// a에 있는 stack을 cnt만큼 3분위로 sort
+int	sort_a(t_stack **stack_a, t_stack **stack_b, int cnt)
+{
+	int	new_cnt;
+
+	if (check_stack(*stack_a, cnt) == 1)
+		return (SUCCESS);
+	if (cnt <= 3)
+	{
+		last_sort(stack_a, cnt);
+		return (SUCCESS);
+	}
+	return (SUCCESS);
+}
+
+int	sort_main(t_stack **stack_a, t_stack **stack_b, int cnt)
+{
+	t_info	new_info;
+
 	ft_memset(&new_info, 0, sizeof(t_info));
 	if (cnt <= 3)
 	{
-		check_stack(stack_a, cnt);
+		last_sort(stack_a, cnt);
 		return (SUCCESS);
 	}
 	new_info.cnt_a = cnt;
-	if (set_pivot(*stack_a, &new_info) == FAIL)
+	if (set_pivot(*stack_a, &new_info, cnt) == FAIL)
 		return (FAIL);
-	sort_stack(stack_a, &stack_b, &new_info, cnt);
-	if (sort_main(stack_a, new_info.cnt_a) == FAIL)
-		return (FAIL);
-	if (sort_main(&stack_b, new_info.cnt_b) == FAIL)
-		return (FAIL);
-	if (stack_b)
-	{
-		stack_last(*stack_a)->bottom = stack_b;
-		stack_b->top = stack_last(*stack_a);
-	}
+	sort_stack(stack_a, stack_b, &new_info, cnt);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 13:50:10 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 21:00:12 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 18:26:14 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	reverse_rotate_a(t_stack **a, int n)
 	t_stack	*tmp;
 	t_stack	*last;
 
+	if (n < 2)
+		return ;
 	last = stack_last(*a);
 	tmp = stack_cnt(*a, n - 1);
 	(*a)->top = last;

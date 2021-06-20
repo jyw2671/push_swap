@@ -6,11 +6,12 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:07:59 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/01 14:24:09 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/20 17:38:19 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	stack_delone(t_stack **stack)
 {
@@ -47,4 +48,14 @@ int	stack_add_back(t_stack **stack, int num)
 	last->bottom = new;
 	new->top = last;
 	return (1);
+}
+
+void	print_stack(t_stack *stack)
+{
+	ft_putendl_fd("------stack------", 1);
+	while (stack)
+	{
+		printf("%d\n", stack->value);
+		stack = stack->bottom;
+	}
 }

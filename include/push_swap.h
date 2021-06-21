@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:48:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/15 20:33:48 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/21 21:36:38 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,13 @@
 
 # define FAIL		0
 # define SUCCESS	1
+
+# define ASCENDING_ORDER	0
+# define DESCENDING_ORDER	1
+
+# define CNT	0
+# define RA		1
+# define RB		2
+# define P_CNT	3
 
 #endif

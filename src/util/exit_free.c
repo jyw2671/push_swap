@@ -6,13 +6,13 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/19 17:12:37 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 00:09:02 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	stack_free(t_stack **stack)
+void	stack_free(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -49,7 +49,6 @@ void	exit_free(t_stack **stack, int status)
 {
 	if (!status)
 		ft_putendl_fd("Error", 2);
-	find_first_stack(stack);
 	stack_free(stack);
 	if (!status)
 		exit(0);

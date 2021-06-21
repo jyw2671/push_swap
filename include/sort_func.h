@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:46:56 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/16 17:17:25 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 00:13:52 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 
 # include "push_swap.h"
 
-int	sort_main(t_stack **stack, int cnt);
-int	set_pivot(t_stack *stack, t_info *info);
+void	sort_main(t_stack **stack_a, t_stack **stack_b, int size);
+void	set_pivot(int pivot[], t_stack *stack, int cnt);
+void	stack_sort_a(t_stack **a, t_stack **b, int cnt);
+void	stack_sort_b(t_stack **a, t_stack **b, int cnt);
+void	setting_stack(t_stack **a, t_stack **b, int ra, int rb);
+void	sort_a_three(t_stack **a, t_stack **b);
+void	sort_b_three(t_stack **a, t_stack **b);
+void	sort_five_stack(t_stack **a, t_stack **b);
 
 #endif

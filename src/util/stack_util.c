@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:53:28 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 00:26:24 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 21:27:39 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,9 @@ t_stack	*stack_new(int num)
 	stack = malloc(sizeof(t_stack));
 	if (stack == NULL)
 		return (0);
-	stack->bottom = 0;
 	stack->top = 0;
+	stack->bottom = 0;
 	stack->value = num;
-	return (stack);
-}
-
-t_stack	*stack_cnt(t_stack *stack, int num)
-{
-	while (--num > 0)
-		stack = stack->bottom;
 	return (stack);
 }
 
@@ -56,4 +49,17 @@ int	check_stack(t_stack *stack, int cnt, int version)
 		stack = stack->bottom;
 	}
 	return (1);
+}
+
+int	stack_cnt(t_stack *stack)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (stack)
+	{
+		stack = stack->bottom;
+		++cnt;
+	}
+	return (cnt);
 }

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:56:49 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 00:08:44 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 21:24:39 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	check_num(char *str, long long *num, t_stack *stack)
 	return (SUCCESS);
 }
 
-static int	add_stack(t_stack **stack, int num, t_info *info)
+static int	add_stack(t_stack **stack, int num)
 {
 	t_stack	*tmp;
 
@@ -53,24 +53,18 @@ static int	add_stack(t_stack **stack, int num, t_info *info)
 		if (!tmp)
 			return (stack_free_ret(&tmp, FAIL));
 		*stack = tmp;
-		info->max = num;
-		info->min = num;
 	}
 	else
 	{
 		tmp = stack_new(num);
 		if (!tmp)
 			return (stack_free_ret(&tmp, FAIL));
-		stack_last(*stack)->bottom = tmp;
-		if (num >= info->max)
-			info->max = num;
-		if (num <= info->min)
-			info->min = num;
+		stack_add_back(stack, tmp);
 	}
 	return (SUCCESS);
 }
 
-static int	store_stack(t_stack **stack, char *av, t_info *info)
+static int	store_stack(t_stack **stack, char *av)
 {
 	char		**tmp;
 	long long	num;
@@ -82,16 +76,15 @@ static int	store_stack(t_stack **stack, char *av, t_info *info)
 	{
 		if (!check_num(tmp[i], &num, *stack))
 			return (free_split(&tmp));
-		if (!add_stack(stack, num, info))
+		if (!add_stack(stack, num))
 			return (free_split(&tmp));
 		free(tmp[i]);
-		info->cnt_a++;
 	}
 	free(tmp);
 	return (1);
 }
 
-t_stack	*make_stack(char *av[], t_info *info)
+t_stack	*make_stack(char *av[])
 {
 	t_stack	*result;
 	int		i;
@@ -100,7 +93,7 @@ t_stack	*make_stack(char *av[], t_info *info)
 	result = 0;
 	while (av[++i])
 	{
-		if (!store_stack(&result, av[i], info))
+		if (!store_stack(&result, av[i]))
 			exit_free(&result, FAIL);
 	}
 	return (result);

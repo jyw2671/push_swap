@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:48:36 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/21 21:36:38 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 23:01:14 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "push_swap_type.h"
 # include "operation.h"
 # include "sort_func.h"
+# include <stdio.h>
 
 # define FAIL		0
 # define SUCCESS	1

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:38:30 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/21 21:31:38 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 22:53:15 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ static void	*make_array(t_stack *stack, int cnt)
 	int	i;
 
 	ft_malloc((void **)&result, (sizeof(int) * (cnt + 1)));
-	i = 0;
-	while (stack)
+	i = -1;
+	while (++i < cnt)
 	{
 		result[i] = stack->value;
 		stack = stack->bottom;
-		++i;
 	}
 	return (result);
 }
@@ -44,6 +43,7 @@ void	set_pivot(int pivot[], t_stack *stack, int cnt)
 	int	b;
 
 	array = make_array(stack, cnt);
+	a = -1;
 	a = -1;
 	while (++a < cnt - 1)
 	{

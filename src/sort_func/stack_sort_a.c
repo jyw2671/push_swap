@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:00:38 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 00:13:10 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 23:17:59 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	sort_stack_a(t_stack **a, t_stack **b, int pivot[2], int info[4])
 			++info[P_CNT];
 			if ((*b)->value > pivot[1])
 			{
-				if (info[CNT] >= 0 && (*a)->value > pivot[0])
+				if (info[CNT] > 0 && (*a)->value > pivot[0])
 				{
 					--info[CNT];
 					print_oper(a, b, "rr");

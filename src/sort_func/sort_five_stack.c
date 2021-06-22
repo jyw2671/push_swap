@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 23:49:06 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 00:05:34 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/22 22:16:26 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_five_stack(t_stack **a, t_stack **b)
 		else
 			print_oper(a, b, "ra");
 	}
-	sort_a_three(a, b);
+	sort_three_first(a, b);
 	if ((*b)->value < (*b)->bottom->value)
 		print_oper(a, b, "rb");
 	print_oper(a, b, "pa");

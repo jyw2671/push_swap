@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 21:16:35 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/21 19:33:22 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/20 21:13:21 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/23 19:03:46 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
-void	swap(t_stack **stack)
+void	reverse_rotate(t_stack **stack)
 {
-	int	tmp;
+	t_stack	*last;
 
-	tmp = (*stack)->value;
-	(*stack)->value = (*stack)->bottom->value;
-	(*stack)->bottom->value = tmp;
+	if (*stack == NULL || (*stack)->bottom == NULL)
+		return ;
+	last = stack_last(*stack);
+	(*stack)->top = last;
+	last->top->bottom = NULL;
+	last->top = NULL;
+	last->bottom = (*stack);
+	*stack = last;
 }

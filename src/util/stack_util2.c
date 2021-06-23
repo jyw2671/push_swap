@@ -6,11 +6,11 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:07:59 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 23:17:50 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 19:04:15 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
 void	stack_add_front(t_stack **stack, int num)
 {

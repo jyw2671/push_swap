@@ -6,11 +6,11 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/23 16:23:29 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 22:32:59 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
 void	stack_free(t_stack **stack)
 {
@@ -51,7 +51,7 @@ void	exit_free(t_stack **stack, int status)
 		ft_putendl_fd("Error", 2);
 	stack_free(stack);
 	if (!status)
-		exit(0);
+		exit(1);
 }
 
 void	exit_malloc_fail(t_stack **stack_a, t_stack **stack_b)
@@ -59,5 +59,5 @@ void	exit_malloc_fail(t_stack **stack_a, t_stack **stack_b)
 	ft_putendl_fd("Malloc Failed", 2);
 	stack_free(stack_a);
 	stack_free(stack_b);
-	exit(0);
+	exit(1);
 }

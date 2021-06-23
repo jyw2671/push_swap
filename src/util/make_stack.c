@@ -6,11 +6,11 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:56:49 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 21:24:39 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 20:30:08 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
 static int	is_int(char *str)
 {
@@ -32,7 +32,7 @@ static int	check_num(char *str, long long *num, t_stack *stack)
 	if (!is_int(str))
 		return (FAIL);
 	*num = ft_atoi(str);
-	if (*num > INT_MAX || *num < INT_MIN)
+	if (*num > __INT_MAX__ || *num < (-__INT_MAX__ - 1))
 		return (FAIL);
 	while (stack)
 	{
@@ -51,14 +51,14 @@ static int	add_stack(t_stack **stack, int num)
 	{
 		tmp = stack_new(num);
 		if (!tmp)
-			return (stack_free_ret(&tmp, FAIL));
+			return (FAIL);
 		*stack = tmp;
 	}
 	else
 	{
 		tmp = stack_new(num);
 		if (!tmp)
-			return (stack_free_ret(&tmp, FAIL));
+			return (FAIL);
 		stack_add_back(stack, tmp);
 	}
 	return (SUCCESS);

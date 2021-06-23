@@ -5,16 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:01:20 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/23 16:23:26 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/23 18:59:41 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/23 20:23:29 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTIL_H
 # define UTIL_H
 
-# include "push_swap.h"
-# include "push_swap_type.h"
+# include "libft.h"
+
+# define FAIL		0
+# define SUCCESS	1
+
+# define ASCENDING_ORDER	0
+# define DESCENDING_ORDER	1
+
+typedef struct s_stack
+{
+	struct s_stack	*bottom;
+	int				value;
+	struct s_stack	*top;
+}	t_stack;
+
+void	swap(t_stack **stack);
+void	rotate(t_stack **stack);
+void	reverse_rotate(t_stack **stack);
+void	push(t_stack **a, t_stack **b);
 
 t_stack	*make_stack(char *av[]);
 

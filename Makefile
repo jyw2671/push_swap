@@ -6,13 +6,13 @@
 #    By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/25 12:14:00 by yjung             #+#    #+#              #
-#    Updated: 2021/06/15 18:51:34 by yjung            ###   ########.fr        #
+#    Updated: 2021/06/23 19:28:49 by yjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# CHECKER = checker
-NAME = push_swap
-# NAME = $(CHECKER) $(PUSH_SWAP)
+CHECKER = checker
+PUSH_SWAP = push_swap
+NAME = $(CHECKER) $(PUSH_SWAP)
 
 AR = ar
 ARFLAGS = crs
@@ -38,28 +38,26 @@ CFLAGS += -I $(LIBFT_INC_DIR)
 
 HEADERS = $(wildcard $(INC_DIR)/*.h)
 
-OPER_SRC_DIR = $(SRC_DIR)/operation
-OPER_SRC = $(wildcard $(OPER_SRC_DIR)/*.c)
+CHECKER_SRC_DIR = $(SRC_DIR)/checker
+CHECKER_SRC = $(wildcard $(CHECKER_SRC_DIR)/*.c)
 
-SORT_SRC_DIR = $(SRC_DIR)/sort_func
-SORT_SRC = $(wildcard $(SORT_SRC_DIR)/*.c)
+PUSH_SWAP_SRC_DIR = $(SRC_DIR)/push_swap
+PUSH_SWAP_SRC = $(wildcard $(PUSH_SWAP_SRC_DIR)/*.c)
 
 UTIL_SRC_DIR = $(SRC_DIR)/util
 UTIL_SRC = $(wildcard $(UTIL_SRC_DIR)/*.c)
 
-SRCS = \
-	$(wildcard $(SRC_DIR)/*.c)	\
-	$(OPER_SRC)	\
-	$(SORT_SRC)	\
-	$(UTIL_SRC)
+PUSH_SWAP_SRC += $(UTIL_SRC)
+CHECKER_SRC += $(UTIL_SRC)
 
 vpath %.c \
 	$(SRC_DIR)	\
-	$(OPER_SRC_DIR)	\
-	$(SORT_SRC_DIR)	\
+	$(PUSH_SWAP_SRC_DIR)	\
+	$(CHECKER_SRC_DIR)	\
 	$(UTIL_SRC_DIR)
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
+PUSH_SWAP_OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(PUSH_SWAP_SRC:.c=.o)))
+CHECKER_OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(CHECKER_SRC:.c=.o)))
 
 all : $(NAME)
 
@@ -77,8 +75,11 @@ $(OBJ_DIR) :
 $(OBJ_DIR)/%.o : %.c $(LIBFT_FILE) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(LIBFT_FILE) $(HEADERS) $(OBJS)
-	@$(CC) $(CFLAGS) $(LIBFT_FLAGS) $(OBJS) -o $@
+$(CHECKER) : $(LIBFT_FILE) $(HEADERS) $(CHECKER_OBJS) $(SRC_DIR)/checker.c
+	@$(CC) $(CFLAGS) $(LIBFT_FLAGS) $(CHECKER_OBJS) $(SRC_DIR)/checker.c -o $@
+
+$(PUSH_SWAP) : $(LIBFT_FILE) $(HEADERS) $(PUSH_SWAP_OBJS) $(SRC_DIR)/push_swap.c
+	@$(CC) $(CFLAGS) $(LIBFT_FLAGS) $(PUSH_SWAP_OBJS) $(SRC_DIR)/push_swap.c -o $@
 
 # lib
 lib : libft

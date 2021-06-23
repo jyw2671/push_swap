@@ -21,6 +21,9 @@
 		"stdio.h": "c",
 		"array": "c",
 		"string": "c",
-		"string_view": "c"
+		"string_view": "c",
+		"util.h": "c",
+		"push_swap.h": "c",
+		"get_next_line.h": "c"
 	}
 }

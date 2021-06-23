@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.h                                        :+:      :+:    :+:   */
+/*   check_checker_stack.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 16:51:07 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/21 20:32:11 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/23 17:37:02 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/23 17:42:19 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION_H
-# define OPERATION_H
+#include "checker.h"
 
-# include "push_swap.h"
+void	check_checker_stack(t_stack *a, t_stack *b)
+{
+	int	cnt;
 
-void	swap(t_stack **stack);
-void	rotate(t_stack **stack);
-void	reverse_rotate(t_stack **stack);
-void	push(t_stack **a, t_stack **b);
-
-#endif
+	cnt = stack_cnt(a);
+	if (!check_stack(a, cnt, ASCENDING_ORDER))
+		return (ft_putendl_fd("KO", 1));
+	if (b)
+		return (ft_putendl_fd("KO", 1));
+	ft_putendl_fd("OK", 1);
+}

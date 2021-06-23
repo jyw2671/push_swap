@@ -6,11 +6,11 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:53:28 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 21:27:39 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 19:04:11 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
 t_stack	*stack_new(int num)
 {

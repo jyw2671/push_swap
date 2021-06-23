@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_type.h                                   :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:25:06 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 23:18:46 by yjung            ###   ########.fr       */
+/*   Created: 2021/06/23 17:03:44 by yjung             #+#    #+#             */
+/*   Updated: 2021/06/23 20:02:39 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_TYPE_H
-# define PUSH_SWAP_TYPE_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
-# include "push_swap.h"
+# include "libft.h"
+# include "util.h"
 
-typedef struct s_stack
-{
-	struct s_stack	*bottom;
-	int				value;
-	struct s_stack	*top;
-}	t_stack;
+t_list	*read_oper(t_stack **stack);
+int		check_oper(t_stack **a, t_stack **b, t_list *oper);
+void	check_checker_stack(t_stack *a, t_stack *b);
 
 #endif

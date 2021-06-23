@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:07:55 by yjung             #+#    #+#             */
-/*   Updated: 2021/05/25 12:07:57 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 20:31:27 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static int	ft_isspace(char c)
 ** ft_atoi - convert a string to an integer
 */
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	result;
-	int	flag;
+	long long	result;
+	int			flag;
 
 	result = 0;
 	flag = 1;

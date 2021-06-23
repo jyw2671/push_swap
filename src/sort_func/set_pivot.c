@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:38:30 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 22:53:15 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 16:25:07 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ static void	*make_array(t_stack *stack, int cnt)
 	return (result);
 }
 
-void	set_pivot(int pivot[], t_stack *stack, int cnt)
+int	set_pivot(int pivot[], t_stack *stack, int cnt)
 {
 	int	*array;
 	int	a;
 	int	b;
 
 	array = make_array(stack, cnt);
+	if (!array)
+		return (FAIL);
 	a = -1;
 	a = -1;
 	while (++a < cnt - 1)
@@ -57,4 +59,5 @@ void	set_pivot(int pivot[], t_stack *stack, int cnt)
 	pivot[0] = array[(cnt * 2) / 3];
 	pivot[1] = array[cnt / 3];
 	free(array);
+	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 23:49:06 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 22:16:26 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 16:27:01 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ static void	*make_array(t_stack *stack, int cnt)
 	return (result);
 }
 
-static int	set_one_pivot(t_stack *stack, int cnt)
+static int	set_one_pivot(t_stack *stack, int cnt, int *pivot)
 {
 	int	*array;
 	int	a;
 	int	b;
 
 	array = make_array(stack, cnt);
+	if (!array)
+		return (FAIL);
 	a = -1;
 	while (++a < cnt - 1)
 	{
@@ -54,9 +56,9 @@ static int	set_one_pivot(t_stack *stack, int cnt)
 				swap_array(&array[a], &array[b]);
 		}
 	}
-	a = array[2];
+	*pivot = array[2];
 	free(array);
-	return (a);
+	return (SUCCESS);
 }
 
 void	sort_five_stack(t_stack **a, t_stack **b)
@@ -64,7 +66,8 @@ void	sort_five_stack(t_stack **a, t_stack **b)
 	int	pivot;
 	int	i;
 
-	pivot = set_one_pivot(*a, 5);
+	if (!set_one_pivot(*a, 5, &pivot))
+		return (exit_malloc_fail(a, b));
 	i = -1;
 	while (++i < 5)
 	{

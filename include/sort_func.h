@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:46:56 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 23:21:48 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 16:25:23 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // sort_main.c
 void	sort_main(t_stack **stack_a, t_stack **stack_b, int size);
 // set_pivot.c
-void	set_pivot(int pivot[], t_stack *stack, int cnt);
+int		set_pivot(int pivot[], t_stack *stack, int cnt);
 // stack_sort_a.c
 void	stack_sort_a(t_stack **a, t_stack **b, int cnt);
 void	setting_stack(t_stack **a, t_stack **b, int ra, int rb);

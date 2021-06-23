@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:33:18 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 00:09:02 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 16:23:29 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,12 @@ void	exit_free(t_stack **stack, int status)
 	stack_free(stack);
 	if (!status)
 		exit(0);
+}
+
+void	exit_malloc_fail(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_putendl_fd("Malloc Failed", 2);
+	stack_free(stack_a);
+	stack_free(stack_b);
+	exit(0);
 }

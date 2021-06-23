@@ -6,7 +6,7 @@
 /*   By: yjung <yjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:28:35 by yjung             #+#    #+#             */
-/*   Updated: 2021/06/22 22:52:40 by yjung            ###   ########.fr       */
+/*   Updated: 2021/06/23 16:24:32 by yjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	stack_sort_b(t_stack **a, t_stack **b, int cnt)
 		return (cnt_checker_b(a, b, cnt));
 	if (check_stack(*b, cnt, DESCENDING_ORDER))
 		return (push_a_all(a, b, cnt));
-	set_pivot(pivot, *b, cnt);
+	if (!set_pivot(pivot, *b, cnt))
+		return (exit_malloc_fail(a, b));
 	ft_memset(&info, 0, sizeof(info));
 	info[CNT] = cnt;
 	sort_stack_b(a, b, pivot, info);
